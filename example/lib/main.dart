@@ -23,7 +23,7 @@ class _MyAppState extends State<MyApp> {
 
     switch (result.status) {
       case TwitterLoginStatus.loggedIn:
-        newMessage = 'Logged in! username: ${result.session.username}';
+        newMessage = 'Logged in! username: ${result.session?.username}';
         break;
       case TwitterLoginStatus.cancelledByUser:
         newMessage = 'Login cancelled by user.';
@@ -58,11 +58,11 @@ class _MyAppState extends State<MyApp> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               new Text(_message),
-              new RaisedButton(
+              TextButton(
                 child: new Text('Log in'),
                 onPressed: _login,
               ),
-              new RaisedButton(
+              TextButton(
                 child: new Text('Log out'),
                 onPressed: _logout,
               ),
